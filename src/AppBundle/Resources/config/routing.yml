@@ -1,5 +1,11 @@
-app:
+article:
     resource: "@AppBundle/Controller/Article/"
     type: annotation
     prefix: /article
+
+movie:
+    resource: "@AppBundle/Controller/Movie/"
+    type: annotation
+    prefix: /movie
+
 
