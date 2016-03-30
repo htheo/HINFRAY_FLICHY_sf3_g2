@@ -26,5 +26,18 @@ class ArticleController extends Controller
         return new Response("Affiche l'article avec l'ID ".$id. " avec le tag ".$tag);
     }
 
+    /**
+     * @Route("/show/{articleName}")
+     *
+     * @param $articleName
+     *
+     * @return Response
+     */
+    public function showArticleNameAction($articleName)
+    {
+        return $this->render('AppBundle:Article:index.html.twig', [
+            'articleName' => $articleName,
+        ]);
+    }
 
 }
