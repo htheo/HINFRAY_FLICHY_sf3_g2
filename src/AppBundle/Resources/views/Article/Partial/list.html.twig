@@ -1,9 +1,9 @@
-
 {% for article in articles %}
-    <h2>{{ article.title }} ({{ article.id }}) </h2>
-    <h5>{{ article.author }}</h5>
-    <p>{{ article.content }}</p>
-
+    <div class="">
+        <h2>{{ article.title }} ({{ article.id }}) </h2>
+        <p class="text-muted">{{ article.author }}</>
+        <p>{{ article.content }}</p>
 {% else %}
-    <p>Il n'y a pas d'articles</p>
+        <p>Il n'y a pas d'articles</p>
+    </div>
 {% endfor %}
