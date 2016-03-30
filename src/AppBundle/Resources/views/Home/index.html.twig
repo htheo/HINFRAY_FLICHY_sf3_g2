@@ -1,9 +1,14 @@
 {% extends ('::base.html.twig') %}
 
+{% block steelsheets %}
+    {{ parent() }}
+{% endblock %}
+
 {% block title %}
-    Home Page
+    {{ parent() ~ '- HomePage' }}
 {% endblock %}
 {% block body %}
+    {{ parent() }}
     <p>This is my homepage</p>
 {% endblock %}
 
