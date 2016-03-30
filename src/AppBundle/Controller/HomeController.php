@@ -14,6 +14,11 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
+        $antispam = $this->get('antispam');
+
+        dump($antispam->isSpam('dlkfldlkjdfklfdsfdlskjslkdflksfjklsjflksjflksjlkfjdslkjdslkfjlxfjdsl'));
+        die;
+
         return $this->render('AppBundle:Home:index.html.twig');
 
     }
