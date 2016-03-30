@@ -1,11 +1,9 @@
 
-{% for tutorial in tutorials %}
+{% for article in articles %}
+    <h2>{{ article.title }} ({{ article.id }}) </h2>
+    <h5>{{ article.author }}</h5>
+    <p>{{ article.content }}</p>
 
-    <h2>id : {{ tutorial.id }} nom : {{ tutorial.name }}</h2>
-
-    {% else %}
-
-    <h2>Pas de tutos</h2>
-
-
+{% else %}
+    <p>Il n'y a pas d'articles</p>
 {% endfor %}

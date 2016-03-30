@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
 
-        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
+        /*
 
         $article = new Article();
 
@@ -29,9 +29,15 @@ class HomeController extends Controller
         ;
 
         $manager->persist($article);
-        $manager->flush();
+        $manager->flush();*/
+        $articleRepository = $manager->getRepository('AppBundle:Article\Article');
 
-        return $this->render('AppBundle:Home:index.html.twig');
+        $articles= $articleRepository->findAll();
+
+
+        return $this->render('AppBundle:Home:index.html.twig', [
+            'articles' => $articles,
+        ]);
     }
 
 }
