@@ -5,10 +5,14 @@
     <title>tutorials</title>
 </head>
 <body>
-<h1>Liste des tutos </strong></h1>
+<h1>Liste des tutos </h1>
 {% for tutorial in tutorials %}
 
     <h2>id : {{ tutorial.id }} nom : {{ tutorial.name }}</h2>
+
+    {% else %}
+
+    <h2>Pas de tutos</h2>
 
 
 {% endfor %}
