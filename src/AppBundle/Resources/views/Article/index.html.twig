@@ -1,10 +1,7 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ articleName }}</title>
-</head>
-<body>
-    <h1>Article - <strong>{{ articleName }}</strong></h1>
-</body>
-</html>
+{% extends('::base.html.twig') %}
+
+
+{% block body %}
+    <h1>Listes d'articles</h1>
+    {%  include('AppBundle:Article/Partial:list.html.twig') %}
+{% endblock %}
