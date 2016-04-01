@@ -54,7 +54,7 @@ class ArticleController extends Controller
 
         $article= $articleRepository->findOneBy(array('slug' => $articleSlug));
 
-      
+
 
         return $this->render('AppBundle:Article:show.html.twig', [
             'article' => $article,
