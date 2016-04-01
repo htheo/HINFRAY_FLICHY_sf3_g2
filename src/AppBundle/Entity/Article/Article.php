@@ -48,6 +48,12 @@ class Article
      * @ORM\Column(name="tag", type="string", length=255, nullable=true)
      */
     private $tag;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     */
+    private $slug;
 
     /**
      * @var \DateTime
@@ -172,6 +178,29 @@ class Article
     public function getTag()
     {
         return $this->tag;
+    }
+    /**
+     * Set tag
+     *
+     * @param string $tag
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
