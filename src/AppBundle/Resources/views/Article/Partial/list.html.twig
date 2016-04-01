@@ -1,8 +1,9 @@
 {% for article in articles %}
     <div class="">
         <h2>{{ article.title }} ({{ article.id }}) </h2>
-        <p class="text-muted">{{ article.author }}</>
+
         <p>{{ article.content }}</p>
+        <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a>
 {% else %}
         <p>Il n'y a pas d'articles</p>
     </div>
