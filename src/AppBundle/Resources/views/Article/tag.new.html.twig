@@ -10,6 +10,20 @@
 
 {% block body %}
     {{ parent() }}
-    <h1>Ajout d'un tag</h1>
-    {{ form(form) }}
+    <h2>Nouvel Article</h2>
+    <div class="form-group">
+        {{ form_widget(form.title,  { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.content,  { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.author,  { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.tag,  { 'attr': {'class': 'form-control'} }) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.save,  { 'attr': {'class': 'form-control'} }) }}
+    </div>
 {% endblock %}

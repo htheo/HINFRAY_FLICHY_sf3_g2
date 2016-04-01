@@ -122,7 +122,7 @@ class ArticleController extends Controller
     ]);
     }
     /**
-     * @Route("/new")
+     * @Route("/new", name="article_create")
      */
     public function newArticleAction(Request $request)
     {
