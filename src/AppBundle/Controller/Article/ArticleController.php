@@ -50,7 +50,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * @Route("/show/{articleSlug}")
+     * @Route("/show/{articleSlug}", name="article_show")
      *
      * @param $articleSlug
      *

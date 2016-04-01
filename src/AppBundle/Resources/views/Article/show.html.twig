@@ -2,11 +2,11 @@
 
 
 {% block body %}
-    {% block navbar %}
-    {% endblock %}
-    <h1>Listes d'articles</h1>
+
+    {{ parent() }}
+
 <div class="">
-    <h2>{{ article.title }} ({{ article.id }}) </h2>
+    <h1>{{ article.title }} ({{ article.id }}) </h1>
 
     <p>{{ article.content }}</p>
     <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>

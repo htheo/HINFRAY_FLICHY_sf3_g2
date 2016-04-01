@@ -18,7 +18,7 @@
                 <li {% if app.request.attributes.get('_route') == 'article_list' %}class="active"{% endif %}><a href="{{ path('article_list') }}">Articles</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ path('article_create') }}"><button class="btn btn-primary">Nouvel Article</button></a></li>
+                <li><a href="{{ path('article_create') }}"><button class="btn btn-responsive btn-primary">Nouvel Article</button></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
