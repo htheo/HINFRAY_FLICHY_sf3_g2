@@ -4,8 +4,10 @@
 
         <p>{{ article.content }}</p>
         <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>
-        <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a>
-        <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a>
+        <ul>
+            <li>Auteur: <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a></li>
+            <li>Tag: <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a></li>
+        </ul>
 {% else %}
         <p>Il n'y a pas d'articles</p>
     </div>
