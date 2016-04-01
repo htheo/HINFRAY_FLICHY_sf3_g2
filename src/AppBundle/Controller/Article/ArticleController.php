@@ -73,6 +73,23 @@ class ArticleController extends Controller
         ]);
     }
     /**
+     * @Route("/tag" , name="article_tag"))
+     */
+    public function tagAction(Request $request)
+    {
+        $tag = $request->query->get('tag');
+
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+
+        $articles= $articleRepository->findBy([
+            'tag' => $tag,
+        ]);
+        return $this->render('AppBundle:Article:index.html.twig',[
+            'articles' => $articles,
+        ]);
+    }
+    /**
      * @Route("/tag/new")
      */
     public function newAction(Request $request)
