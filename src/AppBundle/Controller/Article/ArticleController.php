@@ -12,6 +12,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends Controller
 {
     /**
+     * @Route("/", name="article_home")
+     */
+    public function RedirectAction()
+    {
+        return $this->redirectToRoute('article_list');
+    }
+
+
+    /**
      * @Route("/list", name="article_list")
      */
     public function listAction()
@@ -127,7 +136,7 @@ class ArticleController extends Controller
     ]);
     }
     /**
-     * @Route("/new")
+     * @Route("/new", name="article_create")
      */
     public function newArticleAction(Request $request)
     {

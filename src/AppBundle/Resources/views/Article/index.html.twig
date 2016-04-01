@@ -2,8 +2,7 @@
 
 
 {% block body %}
-    {% block navbar %}
-    {% endblock %}
+    {{ parent() }}
     <h1>Listes d'articles</h1>
     {%  include('AppBundle:Article/Partial:list.html.twig') %}
 {% endblock %}
