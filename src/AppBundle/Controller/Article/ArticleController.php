@@ -11,26 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/list")
+     * @Route("/list", name="article_list")
      */
     public function listAction()
     {
-        $tutorials = [
-            [
-                'id' => 2,
-                'name' => 'Symfony2'
-            ],
-            [
-                'id' => 5,
-                'name' => 'Wordpress'
-            ],
-            [
-                'id' => 9,
-                'name' => 'Laravel'
-            ],
-        ];
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+        $articles = $articleRepository->findAll();
         return $this->render('AppBundle:Article:index.html.twig', [
-            'articles' => $tutorials,
+            'articles' => $articles,
         ]);
     }
 
@@ -81,8 +70,13 @@ class ArticleController extends Controller
     $form = $this->createForm(TagType::class);
 
     $form->handleRequest($request);
+
     if ($form->isValid()) {
-        dump($form->getData());die;
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($form->getData());
+        $em -> flush();
+
+        return $this->redirectToRoute('article_list');
     }
     return $this->render('AppBundle:Article:tag.new.html.twig', [
         'form' => $form->createView(),
