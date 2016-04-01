@@ -3,7 +3,9 @@
         <h2>{{ article.title }} ({{ article.id }}) </h2>
 
         <p>{{ article.content }}</p>
+        <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>
         <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a>
+        <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a>
 {% else %}
         <p>Il n'y a pas d'articles</p>
     </div>
