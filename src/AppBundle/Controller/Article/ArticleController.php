@@ -71,9 +71,21 @@ class ArticleController extends Controller
 
     $form->handleRequest($request);
 
+
+
+
     if ($form->isValid()) {
         $em = $this->getDoctrine()->getManager();
-        $em->persist($form->getData());
+
+
+        /** @var Tag $tag */
+        $tag=$form->getData();
+        $monslug = $tag->getName();
+        $stringUtil = $this->get('slugify');
+        $slug = $stringUtil->slugify($monslug);
+        $tag->setSlug($slug);
+        $em->persist($tag);
+
         $em -> flush();
 
         return $this->redirectToRoute('article_list');
