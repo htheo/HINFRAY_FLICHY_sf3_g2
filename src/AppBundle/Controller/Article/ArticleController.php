@@ -30,7 +30,7 @@ class ArticleController extends Controller
             ],
         ];
         return $this->render('AppBundle:Article:index.html.twig', [
-            'tutorials' => $tutorials,
+            'articles' => $tutorials,
         ]);
     }
 
@@ -82,7 +82,7 @@ class ArticleController extends Controller
 
     $form->handleRequest($request);
     if ($form->isValid()) {
-        dump($form->getDate());die;
+        dump($form->getData());die;
     }
     return $this->render('AppBundle:Article:tag.new.html.twig', [
         'form' => $form->createView(),

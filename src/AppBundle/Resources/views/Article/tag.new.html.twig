@@ -1,5 +1,12 @@
-{% extends('::base.html.twig') %}
+{% extends ('::base.html.twig') %}
 
+{% block steelsheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title %}
+    {{ parent() ~ '- Tags' }}
+{% endblock %}
 
 {% block body %}
     <h1>Ajout d'un tag</h1>
