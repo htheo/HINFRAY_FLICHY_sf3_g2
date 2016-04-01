@@ -1,0 +1,16 @@
+{% extends('::base.html.twig') %}
+
+
+{% block body %}
+    {% block navbar %}
+    {% endblock %}
+    <h1>Listes d'articles</h1>
+<div class="">
+    <h2>{{ article.title }} ({{ article.id }}) </h2>
+
+    <p>{{ article.content }}</p>
+    <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>
+    <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a>
+    <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a>
+</div>
+{% endblock %}
