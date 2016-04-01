@@ -73,11 +73,12 @@ class ArticleController extends Controller
         ]);
     }
     /**
-     * @Route("/new")
+     * @Route("/tag/new")
      */
     public function newAction()
     {
 
     }
+
 
 }
