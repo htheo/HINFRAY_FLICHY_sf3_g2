@@ -27,23 +27,37 @@ class ArticleController extends Controller
     /**
      * @Route("/show/{id}", requirements={"id" = "\d+"})
      */
-    public function showAction($id, Request $request)
+    public function showAction($id)
     {
-       $tag = $request->query->get('tag');
-        return new Response("Affiche l'article avec l'ID ".$id. " avec le tag ".$tag);
+
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+
+        $article= $articleRepository->find($id);
+
+        return $this->render('AppBundle:Article:show.html.twig', [
+            'article' => $article,
+        ]);
     }
 
     /**
-     * @Route("/show/{articleName}")
+     * @Route("/show/{articleSlug}")
      *
-     * @param $articleName
+     * @param $articleSlug
      *
      * @return Response
      */
-    public function showArticleNameAction($articleName)
+    public function showArticleNameAction($articleSlug)
     {
-        return $this->render('AppBundle:Article:index.html.twig', [
-            'articleName' => $articleName,
+        $em = $this->getDoctrine()->getManager();
+        $articleRepository = $em->getRepository('AppBundle:Article\Article');
+
+        $article= $articleRepository->findOneBy(array('slug' => $articleSlug));
+
+      
+
+        return $this->render('AppBundle:Article:show.html.twig', [
+            'article' => $article,
         ]);
     }
     /**
