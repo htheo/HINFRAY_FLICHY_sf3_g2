@@ -84,6 +84,7 @@ class ArticleController extends Controller
         ]);
         return $this->render('AppBundle:Article:index.html.twig',[
             'articles' => $articles,
+            'author' => $author,
         ]);
     }
     /**
@@ -101,6 +102,7 @@ class ArticleController extends Controller
         ]);
         return $this->render('AppBundle:Article:index.html.twig',[
             'articles' => $articles,
+            'tag' => $tag,
         ]);
     }
     /**

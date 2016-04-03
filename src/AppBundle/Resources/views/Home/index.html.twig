@@ -9,7 +9,9 @@
 {% endblock %}
 {% block body %}
     {{ parent() }}
-    <p>Derniers articles</p>
+    <div class="page-header">
+        <h1 id="timeline">Nouveaux Articles</h1>
+    </div>
     {%  include('AppBundle:Article/Partial:list.html.twig') %}
 
 {% endblock %}

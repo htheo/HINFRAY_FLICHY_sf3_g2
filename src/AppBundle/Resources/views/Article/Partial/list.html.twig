@@ -1,5 +1,6 @@
+<ul class="timeline">
 {% for article in articles %}
-    <div class="">
+   {# <div class="">
         <a href="{{ path('article_show',{ 'articleSlug' : article.slug }) }}"><h2>{{ article.title }} ({{ article.id }}) </h2></a>
         <p>{{ article.content }}</p>
         <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>
@@ -7,7 +8,25 @@
             <li>Auteur: <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a></li>
             <li>Tag: <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a></li>
         </ul>
+#}
+
+
+        <li {% if article.id % 2 != 0 %}class="timeline-inverted {% endif %}">
+            <div class="timeline-badge"><i class="glyphicon glyphicon-info-sign"></i></div>
+            <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title"><a href="{{ path('article_show',{ 'articleSlug' : article.slug }) }}"><h2>{{ article.title }}</h2></a></h4>
+                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>écrit le {{ article.createdAt|date('d/m/Y') }} par <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a></small></p>
+                </div>
+                <div class="timeline-body">
+                    <p>{{ article.content }}</p>
+                    <hr>
+                        <p><small>Tag :  <a href="{{ path('article_tag',{'tag': article.tag }) }}"> {{ article.tag }}</a></small></p>
+                </div>
+            </div>
+        </li>
 {% else %}
         <p>Il n'y a pas d'articles</p>
     </div>
 {% endfor %}
+</ul>

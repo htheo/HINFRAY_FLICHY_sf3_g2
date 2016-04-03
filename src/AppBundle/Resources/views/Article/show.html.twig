@@ -5,12 +5,20 @@
 
     {{ parent() }}
 
-<div class="">
-    <h1>{{ article.title }} ({{ article.id }}) </h1>
+<div class="col-md-8 col-md-offset-2">
 
-    <p>{{ article.content }}</p>
-    <p>écrit le {{ article.createdAt|date('d/m/Y') }}</p>
-    <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a>
-    <a href="{{ path('article_tag',{'tag': article.tag }) }}">{{ article.tag }}</a>
+    <div class="timeline-panel">
+        <div class="timeline-heading">
+            <h4 class="timeline-title"><h2>{{ article.title }}</h2></h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Ecrit le {{ article.createdAt|date('d/m/Y') }} par <a href="{{ path('article_author',{'author': article.author }) }}">{{ article.author }}</a></small></p>
+        </div>
+        <div class="timeline-body">
+            <p>{{ article.content }}</p>
+            <hr>
+            <p><small>Tag :  <a href="{{ path('article_tag',{'tag': article.tag }) }}"> {{ article.tag }}</a></small></p>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
+

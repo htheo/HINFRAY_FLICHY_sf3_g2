@@ -3,6 +3,8 @@
 
 {% block body %}
     {{ parent() }}
-    <h1>Listes d'articles</h1>
+    <div class="page-header">
+        <h1 id="timeline">Tous les articles {% if author is defined %} écrit par: {{ author }} {% elseif tag is defined %} avec le tag: {{ tag }}{% endif %}</h1>
+    </div>
     {%  include('AppBundle:Article/Partial:list.html.twig') %}
 {% endblock %}
